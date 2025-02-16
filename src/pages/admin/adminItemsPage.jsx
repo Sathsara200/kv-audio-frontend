@@ -37,7 +37,6 @@ const sampleArr = [
         dimensions: "25x8x8 cm",
         description: "Flexible USB-powered desk lamp with adjustable brightness.",
         availability: true,
-        image: ["https://example.com/images/desk-lamp.jpg"]
     },
     {
         key: "PROD005",
