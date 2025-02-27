@@ -1,4 +1,5 @@
 export default function ProductCard({ item }) {
+    console.log(item.image[0]);
     return (
         <div className="bg-white shadow-lg rounded-xl p-4 w-[300px]">
             <img

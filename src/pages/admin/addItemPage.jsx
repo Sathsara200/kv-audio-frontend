@@ -17,8 +17,8 @@ export default function AddItemPage() {
         console.log(productImages)
         const promises = []
         for(let i = 0; i<productImages.length; i++){
-            console.log(productImages[i])
             const promise = mediaUpload(productImages[i])
+            console.log(promise);
             promises.push(promise)
             if(i == 5 ){
                 toast.error("You can only upload 5 images at a time");
@@ -34,7 +34,7 @@ export default function AddItemPage() {
             productPrice, 
             productCategory, 
             productDimensions, 
-            productDescription
+            productDescription,
         );
         const token = localStorage.getItem("token")
 
