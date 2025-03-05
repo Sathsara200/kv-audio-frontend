@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProductCard({ item }) {
     console.log(item.image[0]);
     return (
@@ -20,9 +22,9 @@ export default function ProductCard({ item }) {
                 >
                     {item.availability ? "In Stock" : "Out of Stock"}
                 </span>
-                <button className="bg-blue-500 text-white px-3 py-1 text-sm rounded-lg hover:bg-blue-600 transition">
+                <Link to={"/product/"+item.key} className="bg-blue-500 text-white px-3 py-1 text-sm rounded-lg hover:bg-blue-600 transition">
                     View details
-                </button>
+                </Link>
             </div>
         </div>
     );
