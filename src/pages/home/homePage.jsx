@@ -6,6 +6,8 @@ import Gallery from "./gallery";
 import ErrorNotFound from "./error";
 import Contact from "./contact";
 import ProductOverview from "./productOverview";
+import BookingPage from "./bookingPage";
+import BookingItem from "../../components/bookingItem";
 
 export default function HomePage(){
     return(
@@ -16,6 +18,7 @@ export default function HomePage(){
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/gallery" element={<Gallery/>}/>
             <Route path="/items" element={<Items/>}/>
+            <Route path="/booking" element={<BookingPage/>}/>
             <Route path="/product/:key" element={<ProductOverview/>}/>
             <Route path="/" element={<Home/>}/>
             <Route path="/*" element={<ErrorNotFound/>}/>
