@@ -7,7 +7,7 @@ import ErrorNotFound from "./error";
 import Contact from "./contact";
 import ProductOverview from "./productOverview";
 import BookingPage from "./bookingPage";
-import BookingItem from "../../components/bookingItem";
+
 
 export default function HomePage(){
     return(
