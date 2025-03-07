@@ -12,7 +12,7 @@ export default function ProductOverview(){
     const [product, setProduct] = useState({});
 
     useEffect(()=>{
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/products/${key}`).then((res)=>{
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/${key}`).then((res)=>{
             setProduct(res.data);
             setLoadingStatus("loaded");
             console.log(res.data);
