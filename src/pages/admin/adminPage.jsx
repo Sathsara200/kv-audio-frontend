@@ -5,6 +5,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import AdminItemsPage from "./adminItemsPage";
 import UpdateItemPage from "./updateItemPage";
 import AddItemPage from "./addItemPage";
+import AdminUsersPage from "./adminUsersPage";
 
 export default function AdminPage(){
     return(
@@ -22,14 +23,15 @@ export default function AdminPage(){
               <MdOutlineSpeaker/>
               Items
             </Link>
-            <button className='w-full h-[40px] text-[25px] font-bold flex justify-center items-center'>
+            <Link to="/admin/users" className='w-full h-[40px] text-[25px] font-bold flex justify-center items-center'>
               <FaRegUser/>
               Users
-            </button>
+            </Link>
         </div>
         <div className='w-[calc(100vw-200px)]'>
           <Routes path="/*">
             <Route path="/bookings" element={<h1>Booking</h1>}/>
+            <Route path="/users" element={<AdminUsersPage/>}/>
             <Route path="/items" element={<AdminItemsPage/>}/>
             <Route path="/items/add" element={<AddItemPage/>}/>
             <Route path="/items/edit" element={<UpdateItemPage/>}/>
