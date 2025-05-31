@@ -70,6 +70,7 @@ export default function AddItemPage() {
                 toast.error("You are not autherized to add items")
             }
         }else{
+            
             toast.error("You are not authorized to add items")
         }
     }
