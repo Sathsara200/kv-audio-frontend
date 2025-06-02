@@ -3,6 +3,7 @@ import "./hero.css";
 import { FaArrowDown } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ReviewCard from "../../components/reveiwCard";
 
 // Home.jsx
 export default function Home() {
@@ -43,7 +44,9 @@ export default function Home() {
 
     <section id="next-section" className="min-h-screen bg-gray-100 p-10">
     <h2 className="text-3xl font-bold text-center mb-6">Customer Reviews</h2>
-    {/* Your reviews go here */}
+    {reviews.map((review) => (
+  <ReviewCard key={review._id} review={review} />
+))}
     </section>
 
 
