@@ -67,7 +67,7 @@ export default function AddItemPage() {
                 toast.success(result.data.message);
                 navigate("/admin/items")
             }catch(err){
-                toast.error("You are not autherized to add items")
+                toast.error("Something went wrong")
             }
         }else{
             

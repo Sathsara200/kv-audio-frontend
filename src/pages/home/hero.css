@@ -1,0 +1,9 @@
+.home {
+  background-image: url('/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 70px);
+  position: relative;
+  overflow: hidden;
+}
