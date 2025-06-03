@@ -19,6 +19,7 @@ export default function Home() {
                 setState("success")
             }).catch((err)=>{
                 console.log("An error occured")
+                console.log(err)
                 setState("error")
             })
         }
@@ -44,8 +45,21 @@ export default function Home() {
 
     <section id="next-section" className="min-h-screen bg-gray-100 p-10">
     <h2 className="text-3xl font-bold text-center mb-6">Customer Reviews</h2>
-    {reviews.map((review) => (
-  <ReviewCard key={review._id} review={review} />
+
+    {
+      state=="loading"&& 
+        <div className="w-full h-full flex justify-center items-center">
+          <div className="w-[50px] h-[50px] border-4 rounded-full border-t-green-500 animate-spin">
+
+          </div>
+        </div>
+    }
+
+    {
+
+    state=="success" &&reviews.map((review,index) => (
+    <ReviewCard key={index} review={review} />
+
 ))}
     </section>
 
