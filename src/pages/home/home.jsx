@@ -9,7 +9,8 @@ import ReviewCard from "../../components/reveiwCard";
 export default function Home() {
 
    const [state,setState] = useState("loading")//loading, success, error
-    const [reviews,setReviews] = useState([])
+  const [reviews,setReviews] = useState([])
+
         useEffect(()=>{
             if(state == "loading"){
               const token = localStorage.getItem("token");
@@ -24,6 +25,34 @@ export default function Home() {
             })
         }
     },[]) 
+
+const handleDelete = (email) => {
+  const token = localStorage.getItem("token");
+
+  // Backup the current reviews
+  const originalReviews = [...reviews];
+
+  // Optimistically update UI
+  setReviews(reviews.filter((review) => review.email !== email));
+
+  axios
+    .delete(`${import.meta.env.VITE_BACKEND_URL}/api/reviews/${email}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((res) => {
+      console.log(res.data);
+      setState("loading");
+      toast.success(res.data.message);
+    })
+    .catch((err) => {
+      console.error(err);
+      toast.error("Something went wrong");
+
+      // Roll back UI if deletion fails
+      setReviews(originalReviews);
+    });
+};
+
   return (
  <div>
     <section className="h-screen flex items-center justify-center home text-white px-6">
@@ -55,12 +84,11 @@ export default function Home() {
         </div>
     }
 
-    {
-
-    state=="success" &&reviews.map((review,index) => (
-    <ReviewCard key={index} review={review} />
-
+    {reviews.map((review) => (
+  <ReviewCard key={review.email} review={review} doit={handleDelete} />
 ))}
+
+    
     </section>
 
 
