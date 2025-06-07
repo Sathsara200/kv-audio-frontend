@@ -20,7 +20,7 @@ export default function MobileNavPanel(props) {
 				<div className="w-full h-screen bg-[#00000070] fixed top-0 left-0 z-50">
 					<div className="h-full bg-white w-[300px] shadow-lg">
 						{/* Header */}
-						<div className="bg-accent w-full h-[70px] flex relative justify-center items-center">
+						<div className="bg-black w-full h-[70px] flex relative justify-center items-center">
 							<img
 								src="/logo.png"
 								alt="logo"
@@ -39,7 +39,7 @@ export default function MobileNavPanel(props) {
 							onClick={() => {
 								goTo("/");
 							}}
-							className="text-[20px] text-accent m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-accent/10 rounded-md"
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
 							<CiHome className="text-2xl" />
 							Home
@@ -48,7 +48,7 @@ export default function MobileNavPanel(props) {
 							onClick={() => {
 								goTo("/items");
 							}}
-							className="text-[20px] text-accent m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-accent/10 rounded-md"
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
 							<CiSpeaker className="text-2xl" />
 							Items
@@ -58,7 +58,7 @@ export default function MobileNavPanel(props) {
 							onClick={() => {
 								goTo("/gallery");
 							}}
-							className="text-[20px] text-accent m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-accent/10 rounded-md"
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
 							<MdPhotoLibrary className="text-2xl" />
 							Gallery
@@ -68,7 +68,7 @@ export default function MobileNavPanel(props) {
 							onClick={() => {
 								goTo("/booking");
 							}}
-							className="text-[20px] text-accent m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-accent/10 rounded-md"
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
 							<FaRegCalendarCheck className="text-2xl" />
 							Booking
@@ -78,7 +78,7 @@ export default function MobileNavPanel(props) {
 							onClick={() => {
 								goTo("/contact");
 							}}
-							className="text-[20px] text-accent m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-accent/10 rounded-md"
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
 							<MdContacts className="text-2xl" />
 							Contact
@@ -88,7 +88,7 @@ export default function MobileNavPanel(props) {
 							onClick={() => {
 								goTo("/about");
 							}}
-							className="text-[20px] text-accent m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-accent/10 rounded-md"
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
 							<MdInfoOutline className="text-2xl" />
 							About

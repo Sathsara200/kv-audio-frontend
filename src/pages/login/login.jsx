@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
+import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -102,8 +103,8 @@ export default function LoginPage() {
           <button className="my-8 w-[300px] h-[50px] bg-[#efac38] text-2xl text-white rounded-lg">
             Login
           </button>
-          <div className="my-8 w-[300px] h-[50px] bg-[#efac38] text-2xl text-white rounded-lg text-center" onClick={googleLogin}>
-            Login with Google
+          <div className="my-8 w-[300px] h-[50px] bg-white text-2xl text-black rounded-lg relative text-center" onClick={googleLogin}>
+           <FcGoogle className="absolute m-1.5 ml-4"/> <b>Login with Google</b>
           </div>
         </div>
       </form>
