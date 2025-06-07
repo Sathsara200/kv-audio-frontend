@@ -59,11 +59,11 @@ export default function BookingPage(){
     }
 
     return(
-        <div className="w-full h-full flex flex-col items-center ">
-            <h1 className="text-2xl font-bold text-accent">Create Booking</h1>
+        <div className="w-full h-[400px] flex flex-col items-center mt-[30px]">
+            <h1 className="text-2xl font-bold text-black">Create Booking</h1>
             <div className="w-full flex flex-col items-center gap-4 mt-4">
                 <label className="flex flex-col">
-                    <span className="text-accent font-semibold">Starting Date:</span>
+                    <span className="text-black font-semibold">Starting Date:</span>
                     <input 
                         type="date" 
                         value={startingDate} 
@@ -72,7 +72,7 @@ export default function BookingPage(){
                     />
                 </label>
                 <label className="flex flex-col">
-                    <span className="text-accent font-semibold">Ending Date:</span>
+                    <span className="text-black font-semibold">Ending Date:</span>
                     <input 
                         type="date" 
                         value={endingDate} 
@@ -80,7 +80,7 @@ export default function BookingPage(){
                         className="border border-secondary rounded-md p-2" 
                     />
                 </label>
-                <p className="text-accent font-medium">Total Days: {daysBetween}</p>
+                <p className="text-black font-medium">Total Days: {daysBetween}</p>
             </div>
             <div className="w-full flex flex-col items-center mt-4">
                 {
@@ -90,10 +90,10 @@ export default function BookingPage(){
                 }
             </div>
             <div className="w-full flex justify-center mt-4">
-                <p className="text-accent font-semibold">Total: {total.toFixed(2)}</p>
+                <p className="text-black font-semibold">Total: {total.toFixed(2)}</p>
             </div>
             <div className="w-full flex justify-center mt-4">
-                <button className="bg-accent text-white px-4 py-2 rounded-md" onClick={handleBookingCreation}>Create Booking</button>
+                <button className="bg-yellow-300 text-black px-4 py-2 rounded-md" onClick={handleBookingCreation}>Create Booking</button>
             </div>
         </div>
     )
