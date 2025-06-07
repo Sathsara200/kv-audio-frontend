@@ -30,7 +30,7 @@ export default function Header() {
 				</Link>
 				<Link
 					to="/booking"
-					className="hidden md:block text-[22px] font-bold m-1 absolute right-28 hover:text-yellow-300"
+					className="hidden md:block text-[22px] font-bold m-1 absolute right-5 hover:text-yellow-300"
 				>
 					<FaCartShopping />
 				</Link>
@@ -48,10 +48,16 @@ export default function Header() {
         logout
       </button>}
 
-	  {token==null&&<button className="hidden md:block absolute right-5 text-[24px]" onClick={()=>{
+	  {token==null&&<button className="hidden md:block absolute right-20 text-[20px] hover:bg-yellow-300 hover:text-black hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
         window.location.href = "/register"
       }}>
         Register
+      </button>}
+
+	  {token==null&&<button className="hidden md:block absolute right-44 text-[20px] hover:bg-yellow-300 hover:text-black hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
+        window.location.href = "/login"
+      }}>
+        Login
       </button>}
 
 			<MobileNavPanel isOpen={navPanelOpen} setOpen={setNavPanelOpen} />

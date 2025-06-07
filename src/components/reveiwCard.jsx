@@ -16,7 +16,7 @@ export default function ReviewCard({review, doit}) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 w-[90%] mx-auto relative m-4">
+    <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 w-[95%] mx-auto relative m-4">
       <div className="flex items-center gap-4 mb-4">
         <img
           src={review.profilePicture}
@@ -32,7 +32,7 @@ export default function ReviewCard({review, doit}) {
       </div>
 
       <MdOutlineDelete
-        className="w-7 h-7 absolute right-4 top-4 cursor-pointer text-red-500 hover:text-red-700"
+        className="w-7 h-7 absolute right-4 top-8 cursor-pointer text-red-500 hover:text-red-700"
         onClick={() => doit(review.email)}
         title="Delete review"
       />

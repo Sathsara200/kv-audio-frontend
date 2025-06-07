@@ -104,7 +104,7 @@ export default function LoginPage() {
             Login
           </button>
           <div className="my-8 w-[300px] h-[50px] bg-white text-2xl text-black rounded-lg relative text-center" onClick={googleLogin}>
-           <FcGoogle className="absolute m-1.5 ml-4"/> <b>Login with Google</b>
+           <FcGoogle className="absolute m-1.5 ml-4"/> Login with Google
           </div>
         </div>
       </form>
