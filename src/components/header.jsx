@@ -41,20 +41,20 @@ export default function Header() {
 					setNavPanelOpen(true);
 				}}
 			/>
-      {token!=null&&<button className="hidden md:block absolute right-5 text-[24px]" onClick={()=>{
+      {token!=null&&<button className="hidden md:block absolute right-20 text-[24px] border-[2px] border-white p-1 rounded-lg w-15 h-10 hover:text-red-600 hover:border-red-600" onClick={()=>{
         localStorage.removeItem("token")
         window.location.href = "/login"
       }}>
-        logout
+        Log out
       </button>}
 
-	  {token==null&&<button className="hidden md:block absolute right-20 text-[20px] hover:bg-yellow-300 hover:text-black hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
+	  {token==null&&<button className="hidden md:block absolute right-20 text-[20px] hover:text-yellow-300 hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
         window.location.href = "/register"
       }}>
         Register
       </button>}
 
-	  {token==null&&<button className="hidden md:block absolute right-44 text-[20px] hover:bg-yellow-300 hover:text-black hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
+	  {token==null&&<button className="hidden md:block absolute right-44 text-[20px]  hover:text-yellow-300 hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
         window.location.href = "/login"
       }}>
         Login
