@@ -7,6 +7,8 @@ import ErrorNotFound from "./error";
 import Contact from "./contact";
 import ProductOverview from "./productOverview";
 import BookingPage from "./bookingPage";
+import AboutUs from "./about";
+
 
 
 
@@ -21,6 +23,7 @@ export default function HomePage(){
             <Route path="/gallery" element={<Gallery/>}/>
             <Route path="/items" element={<Items/>}/>
             <Route path="/booking" element={<BookingPage/>}/>
+           <Route path="/about" element={<AboutUs/>}/>
             <Route path="/product/:key" element={<ProductOverview/>}/> 
             <Route path="/" element={<Home/>}/>
             <Route path="/*" element={<ErrorNotFound/>}/>

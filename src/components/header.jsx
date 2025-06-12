@@ -28,6 +28,9 @@ export default function Header() {
 				<Link to="/items" className="hidden md:block text-[22px]  m-1 hover:text-yellow-300">
 					Items
 				</Link>
+				<Link to="/about"className="hidden md:block text-[22px]  m-1 hover:text-yellow-300">
+					About Us
+				</Link>
 				<Link
 					to="/booking"
 					className="hidden md:block text-[22px] font-bold m-1 absolute right-5 hover:text-yellow-300"
