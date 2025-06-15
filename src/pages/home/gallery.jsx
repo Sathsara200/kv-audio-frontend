@@ -37,11 +37,11 @@ export default function Items() {
           items.map((item, index) => <GalleryCard key={index} item={item} />)}
 
         {state === "error" && (
-          <p className="text-red-500 text-center w-full">Failed to load gallery items.</p>
+          <p className="text-red-500 text-center w-full">Failed to load gallery.</p>
         )}
       </section>
 
-      {/* ✅ Show footer only after data has loaded or error happened */}
+     
       {(state === "success" || state === "error") && (
         <section>
           <Footer />
