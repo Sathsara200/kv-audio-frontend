@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import ReviewCard from "../../components/reveiwCard";
 import Footer from "../../components/footer";
+import { Link } from "react-router-dom";
 
 // Home.jsx
 export default function Home() {
@@ -75,6 +76,15 @@ const handleDelete = (email) => {
 
     <section id="next-section" className="min-h-screen bg-yellow-50 p-10">
     <h2 className="text-3xl font-bold text-center mb-6">Customer Reviews</h2>
+ 
+ 
+<div className="flex justify-end mb-6 mr-[2.5%]">
+  <Link to="/review">
+    <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 flex items-center gap-2">
+      Add Review
+    </button>
+  </Link>
+</div>
 
     {
       state=="loading"&& 
@@ -89,11 +99,11 @@ const handleDelete = (email) => {
   <ReviewCard key={review.email} review={review} doit={handleDelete} />
 ))}
 
-    
+ 
     </section>
 
     <section><Footer></Footer></section>
-
+   
 
     </div>
   );
