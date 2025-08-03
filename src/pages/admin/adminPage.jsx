@@ -9,6 +9,7 @@ import AdminUsersPage from "./adminUsersPage";
 import AdminOrdersPage from "./adminBookingPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AdminReviewPage from "./adminReveiwPage";
 
 
 export default function AdminPage(){
@@ -55,11 +56,17 @@ export default function AdminPage(){
               <FaRegUser/>
               Users
             </Link>
+            <Link to="/admin/reveiws" className='w-full h-[40px] text-[25px] font-bold flex justify-center items-center'>
+              <FaRegUser/>
+              Reveiw
+            </Link>
+
         </div>
         <div className='w-[calc(100vw-200px)]'>
         {userValidated&&<Routes path="/*">
             <Route path="/orders" element={<AdminOrdersPage/>}/>
             <Route path="/users" element={<AdminUsersPage/>}/>
+            <Route path="/reveiws" element={<AdminReviewPage/>}/>
             <Route path="/items" element={<AdminItemsPage/>}/>
             <Route path="/items/add" element={<AddItemPage/>}/>
             <Route path="/items/edit" element={<UpdateItemPage/>}/>
