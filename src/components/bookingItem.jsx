@@ -33,7 +33,7 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 	}
 
 	return (
-		<div className="flex w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
+		<div className="flex w-[341px] md:w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
             <div className="absolute right-[-45px]  text-red-500 hover:text-white hover:bg-red-500 p-[10px] rounded-full  cursor-pointer">
             <FaTrash onClick={() => {
                 removeFromCart(itemKey);
@@ -45,7 +45,7 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 			<img
 				src={item.image[0]}
 				alt={item.name}
-				className="w-20 h-20 object-cover rounded-lg border border-secondary"
+				className="w-15 h-15 md:w-20 md:h-20 object-cover rounded-lg border border-secondary"
 			/>
 
 			{/* Product Details */}

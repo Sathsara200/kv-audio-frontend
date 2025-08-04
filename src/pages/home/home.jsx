@@ -62,9 +62,11 @@ const handleDelete = (email) => {
         <h1 className="text-5xl font-bold mb-4">Rent Pro Audio Gear 🎧</h1>
         <p className="text-xl mb-6 pt-10 pb-2">Fast, affordable, reliable. Everything you <br/>need for your audio project.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-yellow-100 transition">
-            Shop Now
-          </button>
+          <Link to="/items">
+            <button className="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-yellow-100 transition">
+              Shop Now
+            </button>
+          </Link>
         </div>
       </div>
 
