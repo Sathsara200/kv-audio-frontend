@@ -51,13 +51,13 @@ export default function Header() {
         Log out
       </button>}
 
-	  {token==null&&<button className="hidden md:block absolute right-20 text-[20px] hover:text-yellow-300 hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
+	  {token==null&&<button className=" md:block absolute right-20 text-[20px] hover:text-yellow-300 hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
         window.location.href = "/register"
       }}>
         Register
       </button>}
 
-	  {token==null&&<button className="hidden md:block absolute right-44 text-[20px]  hover:text-yellow-300 hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
+	  {token==null&&<button className=" md:block absolute right-44 text-[20px]  hover:text-yellow-300 hover:border-yellow-300 border-[2px] border-white p-1 rounded-lg w-15 h-10" onClick={()=>{
         window.location.href = "/login"
       }}>
         Login

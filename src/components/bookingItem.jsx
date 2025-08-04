@@ -45,7 +45,7 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 			<img
 				src={item.image[0]}
 				alt={item.name}
-				className="w-15 h-15 md:w-20 md:h-20 object-cover rounded-lg border border-secondary"
+				className="w-[50px] h-[50px] md:w-20 md:h-20 object-cover rounded-lg border border-secondary"
 			/>
 
 			{/* Product Details */}

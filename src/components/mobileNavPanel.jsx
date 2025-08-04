@@ -4,10 +4,13 @@ import { MdPhotoLibrary, MdContacts, MdInfoOutline } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+
+
 export default function MobileNavPanel(props) {
 	const isOpen = props.isOpen;
 	const setOpen = props.setOpen;
 	const navigate = useNavigate();
+	const token = localStorage.getItem("token");
 
 	function goTo(route) {
 		navigate(route);
@@ -93,6 +96,17 @@ export default function MobileNavPanel(props) {
 							<MdInfoOutline className="text-2xl" />
 							About
 						</div>
+						{token!=null&&<div
+							onClick={() => {
+								localStorage.removeItem("token")
+								window.location.href = "/login"
+							}}
+							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
+						>
+							<MdInfoOutline className="text-2xl" />
+							Log Out
+						</div>}
+
 					</div>
 				</div>
 			)}
