@@ -33,8 +33,8 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 	}
 
 	return (
-		<div className="flex w-[87%] md:w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
-            <div className="absolute right-[-40px]  text-red-500 hover:text-white hover:bg-red-500 p-[10px] rounded-full  cursor-pointer">
+		<div className="flex w-[83%] md:w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
+            <div className="absolute right-[-35px]  text-red-500 hover:text-white hover:bg-red-500 p-[10px] rounded-full  cursor-pointer">
             <FaTrash onClick={() => {
                 removeFromCart(itemKey);
                 refresh();
@@ -45,19 +45,19 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 			<img
 				src={item.image[0]}
 				alt={item.name}
-				className="w-[50px] h-[50px] md:w-20 md:h-20 object-cover rounded-lg border border-secondary"
+				className="w-[40px] h-[40px] md:w-20 md:h-20 object-cover rounded-lg border border-secondary"
 			/>
 
 			{/* Product Details */}
 			<div className="flex flex-row items-center relative  w-full">
-				<h3 className="text-lg font-semibold text-accent">{item.name}</h3>
+				<h3 className="text-lg font-semibold text-yellow-500">{item.name}</h3>
 				<div className="flex absolute right-0 gap-4">
 					<p className="font-medium w-[70px] text-center">
 						{item.price.toFixed(2)}
 					</p>
 					<p className=" font-medium w-[40px] text-center relative flex justify-center items-center">
 						<button
-							className="absolute top-[-20px] hover:text-accent"
+							className="absolute top-[-20px] hover:text-yellow-600"
 							onClick={() => {
 								addToCart(itemKey, 1);
 								refresh();
@@ -67,7 +67,7 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 						</button>
 						{qty}
 						<button
-							className="absolute bottom-[-20px] hover:text-accent"
+							className="absolute bottom-[-20px] hover:text-yellow-600"
 							onClick={() => {
 								if (qty == 1) {
 									removeFromCart(itemKey);
@@ -81,7 +81,7 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 							<FaArrowDown />
 						</button>
 					</p>
-					<p className="text-lg font-semibold text-accent">
+					<p className="text-lg font-semibold text-yellow-500">
 						{(item.price * qty).toFixed(2)}
 					</p>
 				</div>
