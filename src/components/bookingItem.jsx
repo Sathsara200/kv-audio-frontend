@@ -5,7 +5,7 @@ import { FaArrowDown, FaArrowUp, FaTrash } from "react-icons/fa";
 
 export default function BookingItem({ itemKey, qty, refresh }) {
 	const [item, setItem] = useState(null);
-	const [status, setStatus] = useState("loading"); // loading, success, error
+	const [status, setStatus] = useState("loading");
 
 	useEffect(() => {
 		if (status === "loading") {
@@ -24,65 +24,72 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 		}
 	}, [status]);
 
-	if (status === "loading") {
-		return <div className="text-accent">Loading...</div>;
-	}
-
-	if (status === "error") {
-		return <div className="text-red-500">Failed to load product.</div>;
-	}
+	if (status === "loading") return <div className="text-accent">Loading...</div>;
+	if (status === "error") return <div className="text-red-500">Failed to load product.</div>;
 
 	return (
-		<div className="flex w-[86%] md:w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
-            <div className="absolute left-[335px]  text-red-500 hover:text-white hover:bg-red-500 p-[10px] rounded-full  cursor-pointer">
-            <FaTrash onClick={() => {
-                removeFromCart(itemKey);
-                refresh();
-            }
-            }/>
-            </div>
+		<div className="w-full max-w-2xl mx-auto my-3 p-4 bg-white rounded-xl shadow-md border border-gray-200 flex items-center gap-4">
 			{/* Product Image */}
 			<img
 				src={item.image[0]}
 				alt={item.name}
-				className="w-[40px] h-[40px] md:w-20 md:h-20 object-cover rounded-lg border border-secondary"
+				className="w-20 h-20 object-cover rounded-lg border border-gray-300"
 			/>
 
-			{/* Product Details */}
-			<div className="flex flex-row items-center relative  w-full">
-				<h3 className="text-lg font-semibold text-yellow-500">{item.name}</h3>
-				<div className="flex absolute right-0 gap-4">
-					<p className="font-medium w-[70px] text-center">
-						{item.price.toFixed(2)}
-					</p>
-					<p className=" font-medium w-[40px] text-center relative flex justify-center items-center">
+			{/* Details Section */}
+			<div className="flex-1 flex flex-col justify-between h-full">
+				<div className="flex justify-between items-start">
+					<div>
+						<h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
+						<p className="text-sm text-gray-500">Rs. {item.price.toFixed(2)}</p>
+					</div>
+					{/* Trash */}
+					<button
+						onClick={() => {
+							removeFromCart(itemKey);
+							refresh();
+						}}
+						className="text-red-500 hover:text-white hover:bg-red-500 p-2 rounded-full transition"
+						title="Remove"
+					>
+						<FaTrash />
+					</button>
+				</div>
+
+				{/* Quantity & Total */}
+				<div className="mt-2 flex justify-between items-center">
+					{/* Quantity Controls */}
+					<div className="flex items-center gap-2">
 						<button
-							className="absolute top-[-20px] hover:text-yellow-600"
+							onClick={() => {
+								if (qty === 1) {
+									removeFromCart(itemKey);
+								} else {
+									addToCart(itemKey, -1);
+								}
+								refresh();
+							}}
+							className="p-1 rounded border hover:bg-gray-100"
+							title="Decrease"
+						>
+							<FaArrowDown />
+						</button>
+						<span className="text-base font-medium">{qty}</span>
+						<button
 							onClick={() => {
 								addToCart(itemKey, 1);
 								refresh();
 							}}
+							className="p-1 rounded border hover:bg-gray-100"
+							title="Increase"
 						>
 							<FaArrowUp />
 						</button>
-						{qty}
-						<button
-							className="absolute bottom-[-20px] hover:text-yellow-600"
-							onClick={() => {
-								if (qty == 1) {
-									removeFromCart(itemKey);
-									refresh();
-								} else {
-									addToCart(itemKey, -1);
-									refresh();
-								}
-							}}
-						>
-							<FaArrowDown />
-						</button>
-					</p>
-					<p className="text-lg font-semibold text-yellow-500">
-						{(item.price * qty).toFixed(2)}
+					</div>
+
+					{/* Total Price */}
+					<p className="text-yellow-600 font-semibold text-lg">
+						Rs. {(item.price * qty).toFixed(2)}
 					</p>
 				</div>
 			</div>
