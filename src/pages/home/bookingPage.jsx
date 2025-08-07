@@ -90,7 +90,7 @@ export default function BookingPage() {
                 <p className="text-black font-medium">Total Days: {daysBetween}</p>
             </div>
 
-            <div className="w-full flex flex-col items-center mt-4">
+            <div className="w-full flex flex-col ml-4 mt-4">
                 {cart.orderedItems.map((item) => (
                     <BookingItem
                         itemKey={item.key}
