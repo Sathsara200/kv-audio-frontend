@@ -3,6 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { MdPhotoLibrary, MdContacts, MdInfoOutline } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { TbLogout } from "react-icons/tb";
 
 
 
@@ -101,9 +102,9 @@ export default function MobileNavPanel(props) {
 								localStorage.removeItem("token")
 								window.location.href = "/login"
 							}}
-							className="text-[20px] text-black m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
+							className="text-[20px] text-red-900 m-1 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
 						>
-							<MdInfoOutline className="text-2xl" />
+							<TbLogout className="text-2xl" />
 							Log Out
 						</div>}
 

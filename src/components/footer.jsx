@@ -15,12 +15,12 @@ export default function Footer() {
 
         {/* Navigation */}
         <div>
-          <h3 className="text-xl font-semibold mb-2">Quick Links</h3>
+          <h3 className="text-xl font-semibold mb-2">Main Pages</h3>
           <ul className="text-gray-300 space-y-1">
-            <li><a href="/" className="hover:text-yellow-300">Home</a></li>
-            <li><a href="/shop" className="hover:text-yellow-300">Shop</a></li>
-            <li><a href="/reviews" className="hover:text-yellow-300">Reviews</a></li>
-            <li><a href="/contact" className="hover:text-yellow-300">Contact</a></li>
+            <li className="hover:text-yellow-300">Home</li>
+            <li className="hover:text-yellow-300">Shop</li>
+            <li className="hover:text-yellow-300">Reviews</li>
+            <li className="hover:text-yellow-300">Contact</li>
           </ul>
         </div>
 
