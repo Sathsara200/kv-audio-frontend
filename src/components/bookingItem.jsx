@@ -33,7 +33,7 @@ export default function BookingItem({ itemKey, qty, refresh }) {
 	}
 
 	return (
-		<div className="flex w-[83%] md:w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
+		<div className="flex w-[85%] md:w-[600px] my-2 items-center gap-4 p-4 bg-primary shadow-md rounded-lg border border-secondary relative">
             <div className="absolute right-[-40px]  text-red-500 hover:text-white hover:bg-red-500 p-[10px] rounded-full  cursor-pointer">
             <FaTrash onClick={() => {
                 removeFromCart(itemKey);
