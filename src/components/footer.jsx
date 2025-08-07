@@ -17,10 +17,10 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-2">Main Pages</h3>
           <ul className="text-gray-300 space-y-1">
-            <li className="hover:text-yellow-300">Home</li>
-            <li className="hover:text-yellow-300">Shop</li>
-            <li className="hover:text-yellow-300">Reviews</li>
-            <li className="hover:text-yellow-300">Contact</li>
+            <li>Home</li>
+            <li>Shop</li>
+            <li>Reviews</li>
+            <li>Contact</li>
           </ul>
         </div>
 
