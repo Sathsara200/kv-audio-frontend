@@ -80,14 +80,7 @@ export default function AdminGalleryPage() {
                     {new Date(img.date).toLocaleDateString()}
                   </td>
                   <td className="p-3 flex justify-center gap-3">
-                    <button
-                      onClick={() =>
-                        navigate(`/admin/gallery/edit`, { state: img })
-                      }
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      <FiEdit size={20} />
-                    </button>
+                   
                     <button
                       onClick={() => handleDelete(img._id)}
                       className="text-red-600 hover:text-red-800"

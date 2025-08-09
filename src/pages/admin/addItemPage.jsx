@@ -107,6 +107,13 @@ export default function AddItemPage() {
                 >
                     <option value="audio">Audio</option>
                     <option value="lights">Lights</option>
+                    <option value="guitar">Guitar</option>
+                    <option value="piano">Piano</option>
+                    <option value="drums">Drums</option>
+                    <option value="violin">Violin</option>
+                    <option value="wind">Wind</option>
+
+
                 </select>
                 <input 
                     type="text" 
