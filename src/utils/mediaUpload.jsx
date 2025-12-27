@@ -22,7 +22,7 @@ export default function mediaUpload(file){
         })
         .then(()=>{
 
-            const publicUrl = supabase.storage.from("images").getPublicUrl(fileName).data.publicUrl;
+            const publicUrl = supabase.storage.from("KV-Audio").getPublicUrl(fileName).data.publicUrl;
             resolve(publicUrl)
         }).catch(()=>{
             reject("Error  uploading file")
