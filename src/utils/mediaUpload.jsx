@@ -32,6 +32,7 @@ export default function mediaUpload(file) {
         .getPublicUrl(fileName);
 
       resolve(data.publicUrl);
+      console.log("File uploaded successfully:", data.publicUrl);
 
     } catch (err) {
       reject("Error uploading file");
