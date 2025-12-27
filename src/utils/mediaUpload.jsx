@@ -15,7 +15,7 @@ export default function mediaUpload(file) {
       const fileName = `uploads/${Date.now()}_${file.name}`;
 
       const { error } = await supabase.storage
-        .from("KV-Audio") // ✅ exact bucket name
+        .from("images") // ✅ exact bucket name
         .upload(fileName, file, {
           cacheControl: "3600",
           upsert: false,
@@ -28,7 +28,7 @@ export default function mediaUpload(file) {
       }
 
       const { data } = supabase.storage
-        .from("KV-Audio")
+        .from("images")
         .getPublicUrl(fileName);
 
       resolve(data.publicUrl);
