@@ -4,6 +4,9 @@ import { MdOutlineReviews, MdOutlineSpeaker } from "react-icons/md";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { LuFileSearch2 } from "react-icons/lu";
+import { TfiGallery } from "react-icons/tfi";
+import { HiMenu, HiX } from "react-icons/hi";
 
 import AdminItemsPage from "./adminItemsPage";
 import UpdateItemPage from "./updateItemPage";
@@ -14,11 +17,10 @@ import AdminReviewPage from "./adminReveiwPage";
 import AdminInquiryPage from "./adminInquiryPage";
 import AdminGalleryPage from "./adminGalleryPage";
 import AdminAddGalleryPage from "./adminAddGallery";
-import { LuFileSearch2 } from "react-icons/lu";
-import { TfiGallery } from "react-icons/tfi";
 
 export default function AdminPage() {
   const [userValidated, setUserValidated] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,22 +32,13 @@ export default function AdminPage() {
 
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        const user = res.data;
-        if (user.role === "admin") {
-          setUserValidated(true);
-        } else {
-          window.location.href = "/";
-        }
+        if (res.data.role === "admin") setUserValidated(true);
+        else window.location.href = "/";
       })
-      .catch((err) => {
-        console.error(err);
-        setUserValidated(false);
-      });
+      .catch(() => setUserValidated(false));
   }, []);
 
   const menuItems = [
@@ -58,22 +51,38 @@ export default function AdminPage() {
   ];
 
   return (
-    <div className="w-full h-screen flex bg-gray-100">
+    <div className="flex h-screen bg-gray-100">
+      {/* Mobile Header */}
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900 text-white flex items-center justify-between px-4 py-3 z-50">
+        <div className="flex items-center gap-2 font-bold">
+          <BsGraphDown />
+          Dashboard
+        </div>
+        <button onClick={() => setSidebarOpen(!sidebarOpen)}>
+          {sidebarOpen ? <HiX size={26} /> : <HiMenu size={26} />}
+        </button>
+      </div>
+
       {/* Sidebar */}
-      <div className="w-[220px] h-full bg-gray-900 text-white flex flex-col shadow-lg">
-        <div className="px-4 py-6 text-center text-2xl font-bold border-b border-gray-700">
+      <div
+        className={`fixed md:static z-40 top-0 left-0 h-full w-[220px] bg-gray-900 text-white transform transition-transform duration-300
+        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+        md:translate-x-0`}
+      >
+        <div className="px-4 py-6 text-center text-2xl font-bold border-b border-gray-700 hidden md:block">
           <BsGraphDown className="inline-block mr-2" />
           Dashboard
         </div>
 
-        <nav className="flex-1 mt-4">
+        <nav className="mt-6">
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center px-4 py-3 text-lg transition-colors ${
+                onClick={() => setSidebarOpen(false)}
+                className={`flex items-center px-4 py-3 text-lg ${
                   isActive
                     ? "bg-blue-600 text-white"
                     : "text-gray-300 hover:bg-gray-800 hover:text-white"
@@ -86,15 +95,23 @@ export default function AdminPage() {
           })}
         </nav>
 
-        <div className="p-4 border-t border-gray-700 text-sm text-gray-400 text-center">
+        <div className="absolute bottom-0 w-full p-4 text-center text-sm text-gray-400 border-t border-gray-700">
           Admin Panel © {new Date().getFullYear()}
         </div>
       </div>
 
+      {/* Overlay (mobile only) */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 mt-14 md:mt-0">
         {userValidated && (
-          <Routes path="/*">
+          <Routes>
             <Route path="/orders" element={<AdminOrdersPage />} />
             <Route path="/users" element={<AdminUsersPage />} />
             <Route path="/reveiws" element={<AdminReviewPage />} />
