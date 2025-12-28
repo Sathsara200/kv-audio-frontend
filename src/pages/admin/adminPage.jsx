@@ -109,7 +109,7 @@ export default function AdminPage() {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-6 mt-14 md:mt-0">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 mt-16 md:mt-0">
         {userValidated && (
           <Routes>
             <Route path="/orders" element={<AdminOrdersPage />} />
