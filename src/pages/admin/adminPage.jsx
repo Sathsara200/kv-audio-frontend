@@ -51,30 +51,45 @@ export default function AdminPage() {
   ];
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Mobile Header */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900 text-white flex items-center justify-between px-4 py-3 z-50">
+    <div className="flex h-screen bg-gray-100 overflow-hidden">
+      {/* Mobile Top Bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-2 font-bold">
           <BsGraphDown />
           Dashboard
         </div>
-        <button onClick={() => setSidebarOpen(!sidebarOpen)}>
-          {sidebarOpen ? <HiX size={26} /> : <HiMenu size={26} />}
+        <button onClick={() => setSidebarOpen(true)}>
+          <HiMenu size={26} />
         </button>
       </div>
 
       {/* Sidebar */}
       <div
-        className={`fixed md:static z-40 top-0 left-0 h-full w-[220px] bg-gray-900 text-white transform transition-transform duration-300
+        className={`fixed md:static top-0 left-0 z-40 h-full bg-gray-900 text-white
+        w-[260px] md:w-[220px]
+        transform transition-transform duration-300 ease-in-out
         ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         md:translate-x-0`}
       >
-        <div className="px-4 py-6 text-center text-2xl font-bold border-b border-gray-700 hidden md:block">
+        {/* Mobile Sidebar Header */}
+        <div className="flex md:hidden items-center justify-between px-4 py-4 border-b border-gray-700">
+          <div className="flex items-center gap-2 text-lg font-bold">
+            <BsGraphDown />
+            Dashboard
+          </div>
+          <button onClick={() => setSidebarOpen(false)}>
+            <HiX size={22} />
+          </button>
+        </div>
+
+        {/* Desktop Sidebar Header */}
+        <div className="hidden md:block px-4 py-6 text-center text-2xl font-bold border-b border-gray-700">
           <BsGraphDown className="inline-block mr-2" />
           Dashboard
         </div>
 
-        <nav className="mt-6">
+        {/* Navigation */}
+        <nav className="mt-4">
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
@@ -82,7 +97,8 @@ export default function AdminPage() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center px-4 py-3 text-lg ${
+                className={`flex items-center px-4 py-2.5 text-base md:text-lg transition-colors
+                ${
                   isActive
                     ? "bg-blue-600 text-white"
                     : "text-gray-300 hover:bg-gray-800 hover:text-white"
@@ -95,21 +111,22 @@ export default function AdminPage() {
           })}
         </nav>
 
+        {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-center text-sm text-gray-400 border-t border-gray-700">
           Admin Panel © {new Date().getFullYear()}
         </div>
       </div>
 
-      {/* Overlay (mobile only) */}
+      {/* Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 bg-black/60 z-30 md:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-6 mt-16 md:mt-0">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 mt-14 md:mt-0">
         {userValidated && (
           <Routes>
             <Route path="/orders" element={<AdminOrdersPage />} />
