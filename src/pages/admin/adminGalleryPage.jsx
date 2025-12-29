@@ -141,8 +141,12 @@ export default function AdminGalleryPage() {
       )}
 
       {/* FLOATING ADD BUTTON */}
-      <Link to="/admin/gallery/add">
-        <CiCirclePlus className="fixed bottom-6 right-6 text-[64px] text-blue-600 hover:text-blue-800" />
+     <Link to="/admin/gallery/add">
+       <div className="fixed bottom-20 right-5 z-50">
+         <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-xl active:scale-95 transition">
+          <CiCirclePlus className="text-white text-4xl" />
+         </div>
+       </div>
       </Link>
     </div>
   );
