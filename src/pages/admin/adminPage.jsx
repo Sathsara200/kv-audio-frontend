@@ -1,6 +1,7 @@
 import { BsGraphDown } from "react-icons/bs";
 import { FaRegBookmark, FaRegUser } from "react-icons/fa";
 import { MdOutlineReviews, MdOutlineSpeaker } from "react-icons/md";
+import { TbLogout } from "react-icons/tb"; // <- import logout icon
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -23,8 +24,9 @@ export default function AdminPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
+  const token = localStorage.getItem("token"); // <- define token here
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
     if (!token) {
       window.location.href = "/login";
       return;
@@ -39,7 +41,7 @@ export default function AdminPage() {
         else window.location.href = "/";
       })
       .catch(() => setUserValidated(false));
-  }, []);
+  }, [token]);
 
   const menuItems = [
     { path: "/admin/orders", icon: <FaRegBookmark />, label: "Orders" },
@@ -110,6 +112,20 @@ export default function AdminPage() {
             );
           })}
         </nav>
+
+        {/* Logout Button */}
+        {token && (
+          <div
+            onClick={() => {
+              localStorage.removeItem("token");
+              window.location.href = "/login";
+            }}
+            className="text-[20px] text-red-900 m-4 p-2 flex items-center gap-2 cursor-pointer hover:bg-yellow-300 rounded-md"
+          >
+            <TbLogout className="text-2xl" />
+            Log Out
+          </div>
+        )}
 
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-center text-sm text-gray-400 border-t border-gray-700">
