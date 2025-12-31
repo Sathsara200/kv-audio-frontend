@@ -26,6 +26,12 @@ export default function RegisterPage() {
             phone : phone
         }).then((res)=>{
             toast.success("Registration success")
+
+            // Save token in localStorage if backend returns one
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
+
             navigate("/login")
         }).catch((err)=>{
             toast.error(err?.response?.data?.error|| "An error occured")
